@@ -3,6 +3,7 @@ const db = require("./utils/database");
 const initModels = require('./models/initModels');
 const userRouter  = require("./users/users.router");
 const participantRouter = require("./participants/participants.router")
+const conversationRouter = require("./conversations/conversations.router")
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.get('/',(req, res)=>{
 
 app.use('/api/v1',userRouter),
 app.use('/api/v1', participantRouter),
+app.use('/api/v1',conversationRouter),
 
 app.listen(3000, () => {
   console.log("Server started at port 3000");
